@@ -129,6 +129,15 @@ openssl x509 -in <component>.crt -text -noout
 - Errors often indicate certificate mismatches or trust issues.
 
 ---
+So basically this is the process of how different components trust each other without knowing each other,  each of them also trust a central entity and that central entity trust each one of them and that is how the centralized Trust happens 
+
+SUPERBOSS KNOWS A AND B
+A trust SUPERBOSS
+B trust SUPERBOSS 
+THEREFORE A TRUST B 
+
+SUPERBOSS IS THE CENTRAL CA
+A AND B ARE TWO COMPONENTS OF THE CLUSTER 
 
 This guide covers why we need a CA, how it works, and how certificates are created, signed, and used in Kubernetes. It’s a complete overview for understanding secure communication in the cluster.
 
