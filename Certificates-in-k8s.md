@@ -4,6 +4,7 @@
 - A CA (Certificate Authority) is the root of trust in a Kubernetes cluster.
 - It ensures secure communication between components by signing their certificates.
 - Without a CA, how would different components verify each other’s identity?
+- This means 
 
 ## 2. What is the purpose of `ca.key` and `ca.crt`?
 - `ca.key` is the private key used to sign all other certificates.
@@ -12,6 +13,8 @@
 
 ### How do you create the CA?
 ```bash
+openssl genrsa -out ca.key 2048
+
 openssl req -x509 -new -nodes -key ca.key -subj "/CN=Kubernetes-CA" -days 10000 -out ca.crt
 ```
 - Here, the CA is self-signed because it’s the root of trust.
