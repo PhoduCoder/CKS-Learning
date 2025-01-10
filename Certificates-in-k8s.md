@@ -49,6 +49,14 @@ openssl x509 -req -in <component>.csr -CA ca.crt -CAkey ca.key -CAcreateserial -
 - This gives you the signed certificate, e.g., `kubelet.crt` or `apiserver.crt`.
 - Now the component’s identity is verified by the CA.
 
+- When a component CSR (e.g., kubelet.csr) is submitted, the CA uses:
+    ca.key: To sign the certificate and create component.crt.
+    ca.crt: To embed its public identity into component.crt for verification.
+  This establishes that the certificate is trusted by the CA.
+
+- Verification of certificates The ca.crt is distributed to all cluster components (API server, kubelet, etc.).
+  Components use it to verify that any presented certificate (e.g., apiserver.crt or kubelet.crt) is signed by the trusted CA.
+
 ---
 
 ## 5. Where do these certificates and keys go?
