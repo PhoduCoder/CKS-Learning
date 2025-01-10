@@ -98,6 +98,16 @@ openssl x509 -req -in <component>.csr -CA ca.crt -CAkey ca.key -CAcreateserial -
 2. **Encrypted Communication**:
    - After verification, communication is encrypted over the TLS channel.
 
+When two components (e.g., kubelet and API server) communicate, they exchange their certificates:
+Component A (e.g., API server) presents its certificate.
+Component B (e.g., kubelet) uses the cluster's ca.crt to verify that Component A's certificate was signed by the trusted CA.
+Component B does the same, presenting its certificate, and Component A verifies it using ca.crt.
+Establishing Trust:
+
+Both components confirm that the certificates are valid and issued by the trusted CA.
+This mutual verification builds trust between the components.
+
+
 ---
 
 ## 7. Why is using a CA and CSRs important?
