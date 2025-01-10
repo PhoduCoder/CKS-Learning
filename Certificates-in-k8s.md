@@ -131,9 +131,13 @@ openssl x509 -in <component>.crt -text -noout
 ---
 So basically this is the process of how different components trust each other without knowing each other,  each of them also trust a central entity and that central entity trust each one of them and that is how the centralized Trust happens 
 
-SUPERBOSS KNOWS A AND B
-A trust SUPERBOSS
-B trust SUPERBOSS 
+SUPERBOSS KNOWS A AND B, 
+
+A trust SUPERBOSS,
+
+B trust SUPERBOSS,
+
+
 THEREFORE A TRUST B 
 
 SUPERBOSS IS THE CENTRAL CA
